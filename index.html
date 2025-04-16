@@ -3,18 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Intigo Parcel Tracker</title>
+    <title>Parcel Tracker</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Track Your Intigo Parcel</h1>
-        <form id="tracking-form">
-            <input type="text" id="tracking-number" placeholder="Enter NID (e.g., 12345678)" required>
-            <button type="submit">Track</button>
-        </form>
-        <div id="results"></div>
+        <header>
+            <h1>Parcel Tracker</h1>
+            <p>Track your package with any shipping carrier in real-time</p>
+        </header>
+
+        <main>
+            <section class="search-container card">
+                <form id="tracking-form">
+                    <div class="form-group">
+                        <label for="tracking-number">Enter Your Tracking Number</label>
+                        <input 
+                            type="text" 
+                            id="tracking-number" 
+                            placeholder="e.g., 1097367"
+                            required
+                            autocomplete="off"
+                        >
+                    </div>
+                    <div class="button-container">
+                        <button type="submit" id="track-button">
+                            <span>Track Parcel</span>
+                        </button>
+                    </div>
+                    <div class="error-message" id="error-message"></div>
+                </form>
+            </section>
+
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Fetching your tracking information...</p>
+            </div>
+
+            <section class="tracking-result card" id="tracking-result">
+                <div class="result-header">
+                    <h2>Tracking Details</h2>
+                    <span class="tracking-number" id="result-tracking-number"></span>
+                </div>
+
+                <div class="status-container">
+                    <span class="status" id="status"></span>
+                </div>
+
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <h4>Current Location</h4>
+                        <p id="location">-</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Last Updated</h4>
+                        <p id="last-update">-</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Recipient</h4>
+                        <p id="recipient">-</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Parcel ID</h4>
+                        <p id="parcel-id">-</p>
+                    </div>
+                </div>
+
+                <div class="timeline" id="timeline">
+                    <div class="timeline-header">Tracking History</div>
+                    <!-- Timeline items will be added here dynamically -->
+                </div>
+                
+                <div class="button-container" style="margin-top: 20px;">
+                    <button id="create-ticket-btn" class="secondary-button">Create Support Ticket</button>
+                </div>
+            </section>
+            
+            <section class="ticket-form card" id="ticket-form">
+                <div class="result-header">
+                    <h2>Create Support Ticket</h2>
+                </div>
+                
+                <form id="support-ticket-form">
+                    <div class="form-group">
+                        <label for="ticket-type">Ticket Type</label>
+                        <select id="ticket-type" required>
+                            <option value="">Select a ticket type</option>
+                            <option value="1">General Inquiry</option>
+                            <option value="2">Price Change</option>
+                            <option value="3">Address Change</option>
+                            <option value="4">Phone Number Change</option>
+                            <option value="8">Relaunch Parcel</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Dynamic fields will be added here based on ticket type -->
+                    <div id="dynamic-fields"></div>
+                    
+                    <div class="button-container">
+                        <button type="button" id="cancel-ticket-btn" class="secondary-button">Cancel</button>
+                        <button type="submit" id="submit-ticket-btn">Submit Ticket</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Parcel Tracker. All rights reserved.</p>
+        </footer>
     </div>
-    <script src="script.js"></script>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
