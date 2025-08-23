@@ -28,19 +28,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Status mapping (fixed the typo and made it a constant)
     const STATUS_MAP = {
-        2: 'Assigned to Delivery',
-        6: 'Delivered',
-        8: 'Canceled',
-        10: 'Out for Delivery',
-        15: 'Temporarily Returned',
-        16: 'Permanently Returned',
-        17: 'Returned to Seller',
-        20: 'In Transfer',
-        21: 'Lost',
-        25: 'At Central Hub',
-        27: 'In Transit',
-        28: 'Verification Needed',
-        29: 'Relaunching'
+ 2: "مكلف بالتوصيل",
+  6: "توصّل",
+  8: "تلغى",
+  10: "في طريقو للتوصيل",
+  15: "ترجّع وقتيًّا",
+  16: "ترجّع نهائيًّا",
+  17: "ترجّع للبايع",
+  20: "في التحويل",
+  21: "ضاع",
+  25: "في المركز الرئيسي",
+  27: "في التنقّل",
+  28: "يلزم تأكيد",
+  29: "يعاد الإرسال"
     };
 
     let currentParcelNid = null;
